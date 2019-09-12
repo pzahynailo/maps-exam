@@ -1,0 +1,7 @@
+.search {
+  margin-bottom: 30px;
+  & &__input {
+    width: 400px;
+    margin-right: 50px;
+  }
+}

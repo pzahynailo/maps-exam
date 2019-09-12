@@ -1,0 +1,39 @@
+.areas-menu {
+  padding: 16px;
+
+  & &__content {
+    min-height: 150px;
+    padding: 0;
+  }
+
+  & &__actions {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.area {
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  height: 30px;
+  button {
+    padding: 0;
+  }
+  .show-on-hover {
+    display: none;
+  }
+  &:hover {
+    .show-on-hover {
+      display: block;
+    }
+    p {
+      width: calc(100% - 48px);
+    }
+  }
+}
