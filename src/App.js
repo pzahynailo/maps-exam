@@ -129,6 +129,7 @@ class App extends Component {
                 areaInProgress={this.state.areaInProgress}
                 onSaveArea={this.onSaveArea}
                 edit={this.state.edit}
+                place={this.state.place}
               />
             </Grid>
           </Grid>

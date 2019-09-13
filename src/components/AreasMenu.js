@@ -10,6 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { CreateArea } from './CreateArea';
 import { Area } from './Area';
 import { ShareButtons } from './ShareButtons';
+import Box from '@material-ui/core/Box';
 
 export class AreasMenu extends Component {
   state = {
@@ -17,6 +18,14 @@ export class AreasMenu extends Component {
     name: '',
     showShareButtons: false
   };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.place !== this.props.place) {
+      if (!this.props.place) {
+        this.setState({showShareButtons: false});
+      }
+    }
+  }
 
   onClickAdd = () => {
     this.setState({
@@ -85,11 +94,15 @@ export class AreasMenu extends Component {
             Export to PDF
           </Button>
           {this.state.showShareButtons ? (
-            <ShareButtons />
+            <ShareButtons place={this.props.place} />
           ) : (
-            <Button variant="outlined" color="primary" onClick={this.onShare}>
-              Share
-            </Button>
+            <Tooltip title={this.props.place ? '' : 'Please, select place on the map using search'}>
+              <Box>
+                <Button variant="outlined" color="primary" onClick={this.onShare} disabled={!this.props.place}>
+                  Share
+                </Button>
+              </Box>
+            </Tooltip>
           )}
         </CardActions>
       </Card>
